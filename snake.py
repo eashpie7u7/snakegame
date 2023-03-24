@@ -44,20 +44,31 @@ def move():
     square(food.x, food.y, 9, comida)
     update()
     if randrange(10)==0:
+        #se genera un numero random entre 0 y 10
         food.x+=10
+        #si sale 0 se mueve hacia la derecha 
     elif randrange(100)==1:
         food.x-=10
+        #si sale 1 se mueve hacia la izquierda 
     elif randrange(10)==2:
         food.y+=10
+        #si sale 3 se mueve hacia arriba 
     elif randrange(100)==3:
+        #para disminuir la probabilidad, se eligió 100
         food.y-=10
+        #si sale 3 se mueve hacia abajo 
     ontimer(move, 100)
 colores= ['fuchsia', 'orange', 'mediumslateblue', 'deepskyblue', 'chartreuse']
+#se inició una lista de colores
 n1 = randint(0, 4)
+#se leigió un entero random que corresponde al index 
 col_cuerpo=colores[n1]
 removed_element = colores.pop(n1)
+#con pop se eliminó el color que ya elegí para el cuerpo
 n2=randint(0, 3)
+#ya que tengo una opción menos en la lista
 col_comida=colores[n2]
+#se eligió un color para la comida
 cuerpo=str(col_cuerpo)
 comida=str(col_comida)
 setup(420, 420, 370, 0)
