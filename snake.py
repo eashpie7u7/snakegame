@@ -49,6 +49,14 @@ def move():
 
     square(food.x, food.y, 9, comida)
     update()
+    if randrange(10)==0:
+        food.x+=10
+    elif randrange(100)==1:
+        food.x-=10
+    elif randrange(10)==2:
+        food.y+=10
+    elif randrange(100)==3:
+        food.y-=10
     ontimer(move, 100)
 
 setup(420, 420, 370, 0)
