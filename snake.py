@@ -44,19 +44,25 @@ def move():
     square(food.x, food.y, 9, comida)
     update()
     if randrange(10)==0:
+        if (food.x<200):
         #se genera un numero random entre 0 y 10
-        food.x+=10
-        #si sale 0 se mueve hacia la derecha 
+            food.x+=10
+            #si sale 0 se mueve hacia la derecha 
     elif randrange(100)==1:
-        food.x-=10
-        #si sale 1 se mueve hacia la izquierda 
+        if (food.x>0):
+            food.x-=10
+            #si sale 1 se mueve hacia la izquierda 
     elif randrange(10)==2:
-        food.y+=10
-        #si sale 3 se mueve hacia arriba 
+        if (food.y<200):
+            #se colocaron limites para evitar que se saliera la comida
+            #de la pantalla
+            food.y+=10
+            #si sale 3 se mueve hacia arriba 
     elif randrange(100)==3:
+        if (food.y>0):
         #para disminuir la probabilidad, se eligió 100
-        food.y-=10
-        #si sale 3 se mueve hacia abajo 
+            food.y-=10
+            #si sale 3 se mueve hacia abajo 
     ontimer(move, 100)
 colores= ['fuchsia', 'orange', 'mediumslateblue', 'deepskyblue', 'chartreuse']
 #se inició una lista de colores
