@@ -1,12 +1,12 @@
 from turtle import *
 from random import randrange
 from freegames import square, vector
-import random
+from  random import randrange, choice, randint
 
 food = vector(0, 0)
 snake = [vector(10, 0)]
 aim = vector(0, -10)
-colores= ['fuchsia', 'orange', 'mediumslateblue', 'deepskyblue', 'chartreuse']
+
 
 def change(x, y):
     "Change snake direction."
@@ -37,20 +37,21 @@ def move():
         snake.pop(0)
 
     clear()
-
-    n1 = random.randint(0, 4)
-    n2= random.randint(0, 4)
-    col_cuerpo=colores[n1]
-    col_comida=colores[n2]
-    cuerpo=str(col_cuerpo)
-    comida=str(col_comida)
+    
     for body in snake:
         square(body.x, body.y, 9, cuerpo)
 
     square(food.x, food.y, 9, comida)
     update()
     ontimer(move, 100)
-
+colores= ['fuchsia', 'orange', 'mediumslateblue', 'deepskyblue', 'chartreuse']
+n1 = randint(0, 4)
+col_cuerpo=colores[n1]
+removed_element = colores.pop(n1)
+n2=randint(0, 3)
+col_comida=colores[n2]
+cuerpo=str(col_cuerpo)
+comida=str(col_comida)
 setup(420, 420, 370, 0)
 hideturtle()
 tracer(False)
